@@ -1,0 +1,36 @@
+{
+	"language": "Language",
+	"signin_to_start_session": "Sign to start session",
+	"email": "Email",
+	"password": "Password",
+    "cancel": "Cancel",
+	"login": "Login",
+	"failed": "These credentials do not match our records.",
+	"password_error": "The provided password is incorrect.",
+	"throttle": "Too many login attempts. Please try again in :seconds seconds.",
+	"previous": "&laquo; Previous",
+    "next": "Next &raquo;",
+    "reset": "Your password has been reset!",
+    "sent": "We have emailed your password reset link!",
+    "throttled": "Please wait before retrying.",
+    "token": "This password reset token is invalid.",
+    "user": "We can't find a user with that email address.",
+    "email_required": "Email is required",
+    "email_exists": "This mail not registered",
+    "password_required": "Password is required",
+    "password_min": "Password has to be 8 fields at least",
+    "required": "This field is required.",
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "search": "Search",
+    "forgot_my_password": "I forgot my password",
+    "reset_password": "Reset password",
+    "send_link": "Send password reset link",
+    "back": "Back",
+    "categories": "Categories",
+    "products": "Products"
+
+
+
+
+}

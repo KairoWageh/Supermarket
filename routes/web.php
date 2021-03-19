@@ -13,6 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// setup language url
+
+// Route::get('locale/{locale}', function ($locale){
+//     //Session::put('locale', $locale);
+//     App::setlocale($locale);
+//     session()->put('locale', $locale);
+//     return redirect()->back();
+// });
+
+
+// Auth::routes();
+
+// //if and only if admin is authenticated
+// // admin:admins ====> middleware:guard
+// Route::group(['middleware' => 'admin:admins'], function(){
+
+// 	Route::view('/', 'admin.home')->name('home');
+
+// 	Route::view('categories', 'admin.categories')->name('categories');
+
+// 	Route::view('products', 'admin.products')->name('products');
+
+// });
