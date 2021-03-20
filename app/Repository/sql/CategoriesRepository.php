@@ -32,9 +32,10 @@ class CategoriesRepository extends BaseRepository implements CategoriesRepositor
             'des.min'      => __('description_min'),
 		];
         $request_type = 'store';
-
+        //dd($attributes);
 		$categoryRequest = new CategoryRequest($request_type, null);
         $validator = Validator::make($attributes, $categoryRequest->rules(), $messages)->validate();
+
         // $imageName = $attributes['en_title'].'.'.$attributes['image']->extension();  
 
         // $attributes['image']->move(public_path('images/categories'), $imageName);

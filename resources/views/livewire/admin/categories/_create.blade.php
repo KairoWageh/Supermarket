@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group">
                         <label for="description">{{__('description')}}</label>
-                        <textarea name="description" wire:model="description" class="form-control @error('description') is-invalid @enderror" id="description"></textarea>
+                        <textarea name="description" wire:model="des" class="form-control @error('description') is-invalid @enderror" id="description"></textarea>
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

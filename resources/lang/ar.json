@@ -52,6 +52,8 @@
     "category": "تصنيف",
     "title": "العنوان",
     "description": "الوصف",
+    "description_required": "الوصف مطلوب",
+    "description_min": "الوصف يجب أن يكون 50 حرف على الأقل",
     "ar_title": "العنوان بالعربية",
     "ar_title_required": "العنوان بالعربية مطلوب",
     "ar_title_min": "العنوان بالعربية يجب أن يكون 3 حروف على الأقل",

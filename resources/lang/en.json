@@ -51,6 +51,8 @@
     "category": "Category",
     "title": "Title",
     "description": "Description",
+    "description_required": "Description required",
+    "description_min": "Description must must be at least 50 letters",
     "ar_title": "Arabic title",
     "ar_title_required": "Arabic title required",
     "ar_title_min": "Arabic title must be at least 3 letters",
