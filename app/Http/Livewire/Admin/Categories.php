@@ -3,6 +3,7 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\Category;
+use App\Models\Product;
 use App\Repository\sql\CategoriesRepository;
 use Livewire\WithFileUploads;
 use URL;
@@ -100,11 +101,17 @@ class Categories extends Component
     public function delete_confirm($id){
         $categoryRepository = resolve(CategoriesRepository::class);
         $model = resolve(Category::class);
-        $category = $categoryRepository->delete($id, $model);
-        if($category == true){
-            $this->emit('category_deleted', $this->show_toastr);
+        $products = Product::where('category_id', $id)->get();
+        if(count($products) > 0){
+            $this->emit('category_has_products', $this->show_toastr);
         }else{
-            $this->emit('category_not_deleted', $this->show_toastr);
+            $category = $categoryRepository->delete($id, $model);
+            if($category == true){
+                $this->emit('category_deleted', $this->show_toastr);
+            }else{
+                $this->emit('category_not_deleted', $this->show_toastr);
+            }
         }
+        
     }
 }

@@ -64,11 +64,16 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <select class="form-control" wire:model="category_id">
+
+                        <select wire:model="category_id" class="form-control @error('category_id') is-invalid @enderror">
+                            <option value="">....</option>
                             @foreach($categories as $category)
-                                <option value="$category->id">{{ $category->category_title }}</option>
+                                <option value="{{$category->id}}" wire:key="{{$category->id}}">{{$category->category_title}}</option>
                             @endforeach
                         </select>
+                        @error('category_id')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     
                 </div>

@@ -36,7 +36,7 @@ class CategoryRequest extends FormRequest
                 'ar_title'    => 'required|min:3|unique:categories',
                 'en_title'    => 'required|min:3|unique:categories',
                 'image'       => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024', // 1MB Max
-                'description' => 'required|min:50',
+                'des' => 'required|min:50',
             ]; 
         }
 
@@ -44,7 +44,7 @@ class CategoryRequest extends FormRequest
             $rules = [
                 'ar_title'    => 'required|min:3|unique:categories,ar_title,'.$this->id,
                 'en_title'    => 'required|min:3|unique:categories,en_title,'.$this->id,
-                'description' => 'required|min:50',
+                'des' => 'required|min:50',
             ]; 
         }        
            

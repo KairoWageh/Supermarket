@@ -26,12 +26,13 @@ class CategoriesRepository extends BaseRepository implements CategoriesRepositor
             'en_title.min'         => __('en_title_min'),
             'en_title.unique'      => __('en_title_unique'),
             'image.required'       => __('image_required'),
-            'image.image'          => __('image'),
+            'image.image'          => __('image_image'),
             'image.max'            => __('image_max'),
-            'description.required' => __('description_required'),
-            'description.min'      => __('description_min'),
+            'des.required' => __('description_required'),
+            'des.min'      => __('description_min'),
 		];
         $request_type = 'store';
+
 		$categoryRequest = new CategoryRequest($request_type, null);
         $validator = Validator::make($attributes, $categoryRequest->rules(), $messages)->validate();
         // $imageName = $attributes['en_title'].'.'.$attributes['image']->extension();  

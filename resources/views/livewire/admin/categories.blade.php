@@ -99,6 +99,11 @@
       toastr.error('{{__("not_updated")}}');    
     });
     // hide modal after deleting category
+    window.livewire.on('category_has_products', () => {
+      $('#delete_category_modal').modal('hide');
+      toastr.warning('{{__("has_products")}}');
+    });
+    // hide modal after deleting category
     window.livewire.on('category_deleted', () => {
       $('#delete_category_modal').modal('hide');
       toastr.success('{{__("deleted")}}');

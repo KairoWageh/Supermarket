@@ -28,7 +28,16 @@ class Products extends Component
         $this->product_image=null;
 
         $this->iteration++;
+
+        $categories = Category::all();
+        $categories_count = count($categories);
         $this->setErrorBag(['']);
+
+        if($categories_count > 0){
+            $this->emit('categories_found', $this->show_toastr);
+        }else{
+            $this->emit('cotegories_not_found', $this->show_toastr);
+        }
     }
 
     public function store(){

@@ -35,11 +35,12 @@ class ProductRequest extends FormRequest
             $rules = [
                 'ar_title'       => 'required|min:3|unique:products',
                 'en_title'       => 'required|min:3|unique:products',
-                'ar_des' => 'required|min:50',
-                'en_des' => 'required|min:50',
+                'ar_description' => 'required|min:50',
+                'en_description' => 'required|min:50',
                 'image'          => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024', // 1MB Max
                 'price'          => 'required|numeric|min:1',
                 'quntity'        => 'required|numeric|min:1',
+                'category_id'        => 'required',
             ]; 
         }
 
@@ -52,6 +53,7 @@ class ProductRequest extends FormRequest
                 'image'          => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024', // 1MB Max
                 'price'          => 'required|numeric|min:1',
                 'quntity'        => 'required|numeric|min:1',
+                'category_id'        => 'required',
             ]; 
         }        
            

@@ -41,6 +41,7 @@ class ProductsRepository extends BaseRepository implements ProductsRepositoryInt
             'quntity.required'        => __('quntity_required'),
             'quntity.numeric'         => __('quntity_numeric'),
             'quntity.min'             => __('quntity_min'),
+            'category_id.required'        => __('category_id_required'),
 
 		];
         $request_type = 'store';

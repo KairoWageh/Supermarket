@@ -21,9 +21,10 @@
     	<div class="container-fluid">
         <!-- /.card -->
 
-    		<button type="button" class="btn btn-primary add_btn" data-toggle="modal" data-target="#add_product_modal" wire:click="create">
+    		<button type="button" class="btn btn-primary add_btn" data-toggle="modal" wire:click="create">
           <i class="fa fa-plus"></i> {{__('product')}}
         </button>
+
         <!-- show all admins start -->
         <div class="card">
             <div class="card-header">
@@ -68,6 +69,7 @@
         </div>
         <!-- show all categories end -->
         @include('livewire.admin.products._create')
+        @include('livewire.admin.products._no_categories')
         @include('livewire.admin.products._edit')
         @if(isset($product))
           @include('livewire.admin.products._delete')
@@ -80,6 +82,15 @@
 </div>
 @push('scripts')
   <script type="text/javascript">
+    // show add product modal if categories count > 0
+    window.livewire.on('categories_found', () => {
+      $('#add_product_modal').modal('show');  
+    });
+    // show add no_categories modal if categories count <= 0
+    window.livewire.on('cotegories_not_found', () => {
+      $('#no_categories_modal').modal('show');   
+    });
+
     // hide modal after creating product
     window.livewire.on('product_created', () => {
       $('#add_product_modal').modal('hide');  
