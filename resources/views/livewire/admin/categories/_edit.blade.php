@@ -28,8 +28,8 @@
                     <div class="form-group">
                         <label for="image">{{__('image')}}</label>
                         <input type="file" name="image" wire:model="image" class="form-control @error('image') is-invalid @enderror" id="image{{ $iteration }}">
-                        <label for="old_image">{{__('old_image')}}</label>
-                        <img src="{{ asset('storage/app/'.$old_image) }}" height="60" width="60" wire:model="old_image">
+                        <label for="current_image">{{__('current_image')}}</label>
+                        <img src="{{ asset('storage/app/'.$current_image) }}" height="60" width="60" wire:model="current_image">
                         @error('image')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

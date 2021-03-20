@@ -12,7 +12,7 @@ use URL;
 class Products extends Component
 {
     use WithFileUploads;
-    public $products, $categories, $ar_title, $en_title, $ar_description, $en_description, $product_image, $old_image, $iteration, $price, $quntity, $category_id, $product_id, $delete_product, $show_toastr;
+    public $products, $categories, $ar_title, $en_title, $ar_description, $en_description, $product_image, $current_image, $iteration, $price, $quntity, $category_id, $product_id, $selected_product, $show_toastr;
     public function render()
     {
         $this->products   = Product::all();
@@ -68,8 +68,9 @@ class Products extends Component
         $this->en_title       = $product->en_title;
         $this->ar_description = $product->ar_des;
         $this->en_description = $product->en_des;
-        $this->old_image      = $product->product_image;
-        dd($this->ar_description);
+        $this->current_image      = $product->image;
+        $this->price          = $product->price;
+        $this->quntity        =  $product->quntity;
     }
 
     public function update($id){
@@ -93,10 +94,28 @@ class Products extends Component
         }
         
         $product = $productRepository->update($id, $model, $attributes);
-        if($category == true){
+        if($product == true){
             $this->emit('product_updated', $this->show_toastr);
         }else{
             $this->emit('product_not_updated', $this->show_toastr);
+        }
+    }
+
+    public function delete($id){
+        $productsRepository = resolve(ProductsRepository::class);
+        $model = resolve(Product::class);
+        $this->selected_product = $productsRepository->find($model, $id);
+        return $this->selected_product;
+    }
+
+    public function delete_confirm($id){
+        $productsRepository = resolve(ProductsRepository::class);
+        $model = resolve(Product::class);
+        $product = $productsRepository->delete($id, $model);
+        if($product == true){
+            $this->emit('product_deleted', $this->show_toastr);
+        }else{
+            $this->emit('product_not_deleted', $this->show_toastr);
         }
     }
 }

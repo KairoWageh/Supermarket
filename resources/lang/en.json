@@ -27,8 +27,24 @@
     "reset_password": "Reset password",
     "send_link": "Send password reset link",
     "back": "Back",
+    "admins": "Admins",
+    "admin": "Admin",
+    "banks": "Banks",
+    "bank": "Bank",
+    "account_name": "Account name",
+    "account_number": "Account number",
+    "bank_name": "Bank name",
+    "iban": "IBAN",
     "categories": "Categories",
-    "products": "Products"
+    "products": "Products",
+    "settings": "Settings",
+    "name": "Name",
+    "image": "Image",
+    "password_confirmation": "Password confirmation",
+    "add": "Add",
+    "actions": "Actions",
+    "edit": "Edit",
+    "current_image": "Old image"
 
 
 

@@ -28,8 +28,24 @@
     "reset_password": "تعديل كلمة المرور",
     "send_link": "إرسال رابط تغيير كلمة المرور",
     "back": "رجوع",
+    "admins": "المسئولين",
+    "admin": "مسئول",
+    "banks": "البنوك",
+    "bank": "بنك",
+    "account_name": "اسم الحساب",
+    "account_number": "رقم الحساب",
+    "bank_name": "اسم البنك",
+    "iban": "آيبان",
     "categories": "التصنيفات",
-    "products": "المنتجات"
+    "products": "المنتجات",
+    "settings": "الإعدادات",
+    "name": "الإسم",
+    "image": "الصورة",
+    "password_confirmation": "تأكيد كلمة المرور",
+    "add": "إضافة",
+    "actions": "تحكم",
+    "edit": "تعديل",
+    "current_image": "الصورة الحالية"
 
 
 }

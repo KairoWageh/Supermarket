@@ -69,6 +69,9 @@
         <!-- show all categories end -->
         @include('livewire.admin.products._create')
         @include('livewire.admin.products._edit')
+        @if(isset($product))
+          @include('livewire.admin.products._delete')
+        @endif
         <!--  -->
         <!-- /.card -->
         </div>
@@ -88,7 +91,7 @@
     });
     
     // hide modal after updating product
-    window.livewire.on('category_updated', () => {
+    window.livewire.on('product_updated', () => {
       $('#edit_product_modal').modal('hide');
       toastr.success('{{__("updated")}}');
     });

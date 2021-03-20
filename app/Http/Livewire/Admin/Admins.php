@@ -11,7 +11,7 @@ use URL;
 class Admins extends Component
 {
 	use WithFileUploads;
-    public $admins, $admin_id, $name, $email, $admin_image, $old_image, $iteration, $password, $password_confirmation, $show_toastr, $selected_admin;
+    public $admins, $admin_id, $name, $email, $admin_image, $current_image, $iteration, $password, $password_confirmation, $show_toastr, $selected_admin;
     public function render()
     {
     	$this->admins   = Admin::all();
@@ -59,7 +59,7 @@ class Admins extends Component
         $this->admin_id       = $id;
         $this->name           = $admin->name;
         $this->email          = $admin->email; 
-        $this->old_image      = $admin->image;
+        $this->current_image      = $admin->image;
         
     }
 

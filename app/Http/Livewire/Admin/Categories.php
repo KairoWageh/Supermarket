@@ -11,7 +11,7 @@ class Categories extends Component
 {
     use WithFileUploads;
 
-	public $categories, $ar_title, $en_title, $image, $old_image, $iteration, $description, $category_id, $delete_category, $show_toastr;
+	public $categories, $ar_title, $en_title, $image, $current_image, $iteration, $description, $category_id, $delete_category, $show_toastr;
 
     public function render()
     {
@@ -62,7 +62,7 @@ class Categories extends Component
         $this->category_id = $id;
         $this->ar_title    = $category->ar_title;
         $this->en_title    = $category->en_title;
-        $this->old_image   = $category->image;
+        $this->current_image   = $category->image;
         $this->description = $category->des;
     }
 

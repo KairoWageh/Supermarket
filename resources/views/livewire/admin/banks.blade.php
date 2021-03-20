@@ -21,7 +21,7 @@
   	<div class="container-fluid">
       <!-- /.card -->
 
-  		<button type="button" class="btn btn-primary add_btn" data-toggle="modal" data-target="#add_admin_modal" wire:click="create">
+  		<button type="button" class="btn btn-primary add_btn" data-toggle="modal" data-target="#add_bank_modal" wire:click="create">
         <i class="fa fa-plus"></i> {{__('bank')}}
       </button>
       <!-- show all banks start -->
@@ -35,22 +35,46 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>{{__('name')}}</th>
-                  <th>{{__('email')}}</th>
+                  <th>{{__('account_name')}}</th>
+                  <th>{{__('account_number')}}</th>
+                  <th>{{__('bank_name')}}</th>
                   <th>{{__('image')}}</th>
+                  <th>{{__('iban')}}</th>
                   <th>{{__('actions')}}</th>
                 </tr>
               </thead>
               <tbody>
-                   
+                @foreach($banks as $bank)
+                  <tr>
+                    <td>{{$bank->id}}</td>
+                    <td>{{$bank->name}}</td>
+                    <td>{{$bank->number}}</td>
+                    <td>{{$bank->bank_name}}</td>
+                    <td>
+                      <img src="{{ asset('storage/app/'.$bank->image) }}" height="60" width="60" />
+                    </td>
+                    <td>{{$bank->iban}}</td>
+                    <td>
+                      <button type="button" class="btn btn-info" data-toggle="modal" wire:click=" edit({{ $bank->id }})" data-target="#edit_bank_modal">
+                        <i class="fa fa-edit"></i>
+                      </button>
+                      <button type="button" class="btn btn-danger" data-toggle="modal" wire:click=" delete({{ $bank->id }})" data-target="#delete_bank_modal">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                @endforeach 
               </tbody>
             </table>
           </div>
         <!-- /.card-body -->
       </div>
       <!-- show all banks end -->
-
-
+      @include('livewire.admin.banks._create')
+      @include('livewire.admin.banks._edit')
+      @if(isset($delete_bank))
+        @include('livewire.admin.banks._delete')
+      @endif
       <!-- /.card -->
       </div>
   </section>
