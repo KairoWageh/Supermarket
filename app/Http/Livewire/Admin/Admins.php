@@ -58,7 +58,8 @@ class Admins extends Component
 
         $this->admin_id       = $id;
         $this->name           = $admin->name;
-        $this->email          = $admin->email; 
+        $this->email    = $admin->email; 
+        $this->image      = $admin->image;
         $this->current_image      = $admin->image;
         
     }

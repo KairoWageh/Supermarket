@@ -15,8 +15,11 @@
     "throttled": "Please wait before retrying.",
     "token": "This password reset token is invalid.",
     "user": "We can't find a user with that email address.",
+    "name_required": "Name is required",
+    "name_min": "Name must must be at least 3 letters",
     "email_required": "Email is required",
     "email_exists": "This mail not registered",
+    "email_unique": "This mail already exists",
     "password_required": "Password is required",
     "password_min": "Password has to be 8 fields at least",
     "required": "This field is required.",
@@ -35,6 +38,15 @@
     "account_number": "Account number",
     "bank_name": "Bank name",
     "iban": "IBAN",
+    "account_name_required": "Account name required",
+    "account_name_min": "Account name must be at least 3 letters",
+    "account_number_required": "Account number required",
+    "account_number_min": "Account number must be at least 10 letters",
+    "account_number_max": "Account number must be at most 15 letters",
+    "bank_name_required": "Bank name required",
+    "bank_name_min": "Bank name must be at least 3 letters",
+    "iban_required": "IBAN required",
+    "iban_regex": "Incorrect iban format",
     "categories": "Categories",
     "category": "Category",
     "title": "Title",
@@ -52,11 +64,18 @@
     "name": "Name",
     "image": "Image",
     "password_confirmation": "Password confirmation",
+    "password_confirmation_required": "Password confirmation required",
+    "password_confirmation_same": "Password confirmation must be the same as password",
     "add": "Add",
     "actions": "Actions",
     "edit": "Edit",
-    "current_image": "Old image"
-
+    "current_image": "Current image",
+    "created": "Created successfully",
+    "not_created": "Not created",
+    "updated":"Updated successfully",
+    "not_updated": "Not updated",
+    "deleted": "Deleted successfully",
+    "not_deleted": "Not deleted"
 
 
 

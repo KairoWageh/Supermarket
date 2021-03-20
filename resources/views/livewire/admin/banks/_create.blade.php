@@ -20,7 +20,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="account_number ">{{__('account_number ')}}</label>
+                        <label for="account_number ">{{__('account_number')}}</label>
                         <input type="text" name="account_number" wire:model="account_number" class="form-control @error('account_number') is-invalid @enderror" id="account_number" placeholder="{{__('account_number')}}"> 
                         @error('account_number')
                             <div class="alert alert-danger">{{ $message }}</div>
