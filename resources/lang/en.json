@@ -67,6 +67,7 @@
     "product": "Product",
     "markets": "Markets",
     "market": "Market",
+    "phone_code": "Phone code",
     "phone": "Phone",
     "orders": "Orders",
     "amount": "Amount",
@@ -87,7 +88,8 @@
     "updated":"Updated successfully",
     "not_updated": "Not updated",
     "deleted": "Deleted successfully",
-    "not_deleted": "Not deleted"
+    "not_deleted": "Not deleted",
+    "default_language": "Default language"
 
 
 
