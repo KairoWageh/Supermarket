@@ -35,7 +35,7 @@ class AdminRequest extends FormRequest
         if($this->request_type == 'store'){
             $rules = [
                 'name'       => 'required|min:3|unique:admins',
-                'email'       => 'required|min:3|unique:admins',
+                'email'       => 'required|email|unique:admins',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024', // 1MB Max
                 'password'              => 'required|min:8',
                 'password_confirmation' => 'required|same:password',

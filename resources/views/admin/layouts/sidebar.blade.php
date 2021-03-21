@@ -50,6 +50,15 @@
                 </p>
               </a>
             </li>
+            <!-- Users -->
+            <li class="nav-item">
+              <a href="{{ route('users') }}" class="nav-link">
+                <i class="nav-icon fa fa-users" ></i>
+                <p>
+                  {{__('users')}}
+                </p>
+              </a>
+            </li>
 
             <!-- Banks -->
             <li class="nav-item">
@@ -76,6 +85,26 @@
                 <i class="nav-icon fab fa-product-hunt"></i>
                 <p>
                   {{__('products')}}
+                </p>
+              </a>
+            </li>
+
+            <!-- Markets -->
+            <li class="nav-item">
+              <a href="{{ route('markets') }}" class="nav-link">
+                <i class="nav-icon fa fa-building"></i>
+                <p>
+                  {{__('markets')}}
+                </p>
+              </a>
+            </li>
+
+            <!-- Orders -->
+            <li class="nav-item">
+              <a href="{{ route('orders') }}" class="nav-link">
+                <i class="nav-icon fa fa-shopping-cart"></i>
+                <p>
+                  {{__('orders')}}
                 </p>
               </a>
             </li>

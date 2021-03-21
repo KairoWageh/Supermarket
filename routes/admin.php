@@ -28,17 +28,13 @@ Auth::routes();
 //if and only if admin is authenticated
 // admin:admin ====> middleware:guard
 Route::group(['middleware' => 'admin:admin'], function(){
-
 	Route::view('/', 'admin.home')->name('home');
-
 	Route::view('admins', 'admin.admins')->name('admins');
-
+	Route::view('users', 'admin.users')->name('users');
 	Route::view('banks', 'admin.banks')->name('banks');
-
 	Route::view('categories', 'admin.categories')->name('categories');
-
 	Route::view('products', 'admin.products')->name('products');
-
+	Route::view('markets', 'admin.markets')->name('markets');
+	Route::view('orders', 'admin.orders')->name('orders');
 	Route::view('settings', 'admin.settings')->name('settings');
-
 });
