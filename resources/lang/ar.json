@@ -90,7 +90,19 @@
     "not_updated": "لم يتم التعديل",
     "deleted": "تم الحذف بنجاح",
     "not_deleted": "لم يتم الحذف",
-    "default_language": "اللغة الإفتراضية"
-
-
+    "setings": "الإعدادات",
+    "address": "العنوان",
+    "default_language": "اللغة الإفتراضية",
+    "save": "حفظ",
+    "are_you_sure": "هل أنت متأكد؟",
+    "confirm": "هل أنت متأكد من حذف هذا السجل؟",
+    "ar_description": "الوصف بالعربية",
+    "en_description": "الوصف بالإنجليزية",
+    "logo": "الشعار",
+    "first_email": "البريد الالكتروني الاول",
+    "second_email": "البريد الالكتروني الثاني",
+    "first_address": "العنوان الاول",
+    "second_address": "العنوان الثاني",
+    "first_phone": "الهاتف الاول",
+    "second_phone": "الهاتف الثاني"
 }

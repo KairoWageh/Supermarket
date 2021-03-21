@@ -88,14 +88,14 @@ class ProductsRepository extends BaseRepository implements ProductsRepositoryInt
         $request_type = 'update';
         $productRequest = new ProductRequest($request_type, $id);
         $validator = Validator::make($attributes, $productRequest->rules(), $messages)->validate();
-        $role = $model->find($id);
+        $product = $model->find($id);
         if(isset($attributes['image'])){
             $imageName = $attributes['en_title'].'.'.$attributes['image']->extension(); 
             $attributes['image'] = 'images/categories/'.$imageName;
         }
         
         $model::where('id', $id)->update($attributes);
-        return $role;
+        return $product;
     }
 
     public function delete($id, $model){

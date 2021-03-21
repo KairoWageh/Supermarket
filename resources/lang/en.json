@@ -89,8 +89,19 @@
     "not_updated": "Not updated",
     "deleted": "Deleted successfully",
     "not_deleted": "Not deleted",
-    "default_language": "Default language"
-
-
-
+    "setings":"Settings",
+    "address": "Address",
+    "default_language": "Default language",
+    "save": "Save",
+    "are_you_sure": "Are you sure?",
+    "confirm": "Are you sure you want to delete delete this item?",
+    "ar_description": "Arabic description",
+    "en_description": "English description",
+    "logo": "Logo",
+    "first_email": "First email",
+    "second_email": "Second email",
+    "first_address": "First address",
+    "second_address": "Second address",
+    "first_phone": "First phone",
+    "second_phone": "Second phone"
 }

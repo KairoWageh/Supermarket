@@ -13,7 +13,7 @@
             <form wire:submit.prevent="store">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="name">{{__('name')}}</label>
+                        <label for="name">{{ __('name') }}</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="{{__('name')}}" wire:model="name">
                         @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>

@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<div wire:ignore.self class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       	<div class="container-fluid">
@@ -20,98 +20,95 @@
     <section class="content">
     	<div class="container-fluid">
         <!-- /.card -->
-
         <!-- show all admins start -->
 	        <div class="card">
 	            <div class="card-header">
 	              <h3 class="card-title">{{__('setings')}}</h3>
+                <button type="button" class="btn btn-info" data-toggle="modal" wire:click=" edit({{$settings_id}})" data-target="#edit_settings_modal">
+                  <i class="fa fa-edit"></i>
+                </button>
 	            </div>
 	            <!-- /.card-header -->
 	            <div class="card-body">
 	            	<div class="box">
-						<div class="box-body">
-							{!! Form::open(['url' => '', 'files' => true]) !!}
-							<div class="form-group">
-								{!! Form::label('ar_title', __('ar_title')) !!}
-								{!! Form::text('ar_title', setting()->ar_title, ['class' => 'form-control']) !!}
-							</div>
-							<div class="form-group">
-								{!! Form::label('en_title', __('en_title')) !!}
-								{!! Form::text('en_title', setting()->en_title, ['class' => 'form-control']) !!}
-							</div>
-							<div class="form-group">
-								{!! Form::label('email1', __('email')) !!}
-								{!! Form::text('email1', setting()->email1, ['class' => 'form-control']) !!}
-							</div>
-							<div class="form-group">
-								{!! Form::label('email2', __('email')) !!}
-								{!! Form::text('email2', setting()->email2, ['class' => 'form-control']) !!}
-							</div>
-							<div class="form-group">
-								{!! Form::label('address1', __('address')) !!}
-								{!! Form::text('address1', setting()->address1, ['class' => 'form-control']) !!}
-							</div>
-							<div class="form-group">
-								{!! Form::label('address2', __('address')) !!}
-								{!! Form::text('address2', setting()->address2, ['class' => 'form-control']) !!}
-							</div>
-							<div class="form-group">
-								{!! Form::label('phone1', __('phone')) !!}
-								{!! Form::text('phone1', setting()->phone1, ['class' => 'form-control']) !!}
-							</div>
-							<div class="form-group">
-								{!! Form::label('phone2', __('phone')) !!}
-								{!! Form::text('phone2', setting()->phone2, ['class' => 'form-control']) !!}
-							</div>
+						      <div class="box-body">
+                      <div class="modal-body">
+                        <div class="form-group">
 
-							<div class="form-group">
-								{!! Form::label('default_language', __('default_language')) !!}
-								{!! Form::select('default_language', ['en' => 'English', 'ar' => 'العربية'], setting()->default_language, ['class' => 'form-control']) !!}
-							</div>
+                          
+                          <label for="ar_title">{{__('ar_title')}}</label>
+                          <span name="ar_title">{{setting()->ar_title}}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="en_title">{{__('en_title')}}</label>
+                          <span name="en_title">{{setting()->en_title}}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="ar_description ">{{__('ar_description ')}}</label>
+                          <p name="ar_description">{{setting()->ar_des}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="en_description">{{__('en_description')}}</label>
+                            <p name="en_description">{{setting()->en_des}}</p>
+                        </div>
+                        <div class="form-group">
+                          <label for="logo">{{__('logo')}}</label>
+                          <img src="storage/app/{{setting()->logo}}" width="60" height="60">
+                        </div>
+                        <div class="form-group">
+                            <label for="email1">{{__('first_email')}}</label>
+                            <span>{{setting()->email1}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email2">{{__('second_email')}}</label>
+                            <span>{{setting()->email2}}</span>
+                        </div>
 
-							{!! Form::submit(__('save'), ['class' => 'btn btn-primary']) !!}
-							{!! Form::close() !!}
-						</div>
-					</div>
-	            </div>
+
+                        <div class="form-group">
+                            <label for="address1">{{__('first_address')}}</label>
+                            <span>{{setting()->address1}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="address2">{{__('second_address')}}</label>
+                            <span>{{setting()->address2}}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone1">{{__('first_phone')}}</label>
+                            <span>{{setting()->phone1}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone2">{{__('second_phone')}}</label>
+                            <span>{{setting()->phone1}}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="default_language">{{__('default_language')}}</label>
+                          <span>{{$language}}</span>
+                        </div>
+                      </div>
+                  </div>
 	          <!-- /.card-body -->
-	        </div>
-
+                </div>
+              </div>
         <!--  -->
-        <!-- /.card -->
         </div>
+        <!-- /.card -->
+         @include('livewire.admin.settings._edit')
+      </div>
     </section>
     <!-- /.content -->
 </div>
 @push('scripts')
   <script type="text/javascript">
-    // hide modal after creating product
-    window.livewire.on('product_created', () => {
-      $('#add_product_modal').modal('hide');  
-        toastr.success('{{__("created")}}');
+    // hide modal after editing settings
+    window.livewire.on('settings_updated', () => {
+      $('#edit_settings_modal').modal('hide');
+        toastr.success('{{__("updated")}}');
     });
-    // show error message if not created
-    window.livewire.on('product_not_created', () => {
-      toastr.error('{{__("not_created")}}');    
-    });
-    
-    // hide modal after updating product
-    window.livewire.on('category_updated', () => {
-      $('#edit_product_modal').modal('hide');
-      toastr.success('{{__("updated")}}');
-    });
-    // show error message if not updated
-    window.livewire.on('product_not_updated', () => {
+    // show error message if not edited
+    window.livewire.on('settings_not_updated', () => {
       toastr.error('{{__("not_updated")}}');    
-    });
-    // hide modal after deleting product
-    window.livewire.on('product_deleted', () => {
-      $('#delete_product_modal').modal('hide');
-      toastr.success('{{__("deleted")}}');
-    });
-    // show error message if not deleted
-    window.livewire.on('product_not_deleted', () => {
-      toastr.error('{{__("not_deleted")}}');
     });
   </script>
 @endpush

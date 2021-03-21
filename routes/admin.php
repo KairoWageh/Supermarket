@@ -16,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 // setup language url
 
 Route::get('locale/{locale}', function ($locale){
-    //Session::put('locale', $locale);
-    App::setlocale($locale);
-    session()->put('locale', $locale);
-    return redirect()->back();
+    // //Session::put('locale', $locale);
+    // App::setlocale($locale);
+    // session()->put('locale', $locale);
+    // return redirect()->back();
+
+    session()->has('locale')? session()->forget('locale'): '';
+	$locale == 'ar'? session()->put('locale', 'ar'): session()->put('locale', 'en');
+	return back();
 });
 
 

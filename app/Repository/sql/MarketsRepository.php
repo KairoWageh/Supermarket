@@ -103,11 +103,11 @@ class MarketsRepository extends BaseRepository implements MarketsRepositoryInter
         $request_type = 'update';
         $marketRequest = new MarketRequest($request_type, $id);
         $validator = Validator::make($attributes, $marketRequest->rules(), $messages)->validate();
-        $admin = $model::where('id', $id)->update($attributes);
-        return $admin;
+        $market = $model::where('id', $id)->update($attributes);
+        return $market;
     }
     public function delete($id, $model){
-        $admin = $model::where('id', $id)->delete();
-        return $admin;
+        $market = $model::where('id', $id)->delete();
+        return $market;
     }
 }

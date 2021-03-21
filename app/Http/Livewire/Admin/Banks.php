@@ -73,6 +73,7 @@ class Banks extends Component
         ];
         $banksRepository = resolve(BanksRepository::class);
         $model = resolve(Bank::class);
+
         if($attributes['image'] == null){
             unset($attributes['image']);
         }else{
