@@ -26,6 +26,11 @@ class Product extends Model
         'category_id'        
     ];
 
+    public function productImage()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
     function getProductTitleAttribute() {
         if(Session::get('locale') == 'ar')
             $title = $this->ar_title;

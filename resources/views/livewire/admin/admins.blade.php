@@ -51,12 +51,14 @@
                       <img src="{{ asset('storage/app/'.$admin->image) }}" height="60" width="60" />
                     </td>
                     <td>
-                        <button type="button" class="btn btn-info" data-toggle="modal" wire:click=" edit({{ $admin->id }})" data-target="#edit_admin_modal">
-                          <i class="fa fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" wire:click=" delete({{ $admin->id }})" data-target="#delete_admin_modal">
-                          <i class="fa fa-trash"></i>
-                        </button>
+                      <p>{{$admin->id}}</p>
+                        <button type="button" wire:click="edit({{$admin->id}})" class="btn btn-info" data-toggle="modal"  data-target="#edit_admin_modal">
+                            <i class="fa fa-edit"></i> 
+                          </button>
+
+                          <button type="button" wire:click="delete({{$admin->id}})" class="btn btn-danger" data-toggle="modal"  data-target="#delete_admin_modal">
+                            <i class="fa fa-trash"></i> 
+                          </button>
                       </td>
                   </tr>
                 @endforeach    
@@ -66,11 +68,13 @@
         <!-- /.card-body -->
       </div>
       <!-- show all admins end -->
-      @include('livewire.admin.admins._create')
+
       @include('livewire.admin.admins._edit')
       @if(isset($admin))
         @include('livewire.admin.admins._delete')
       @endif
+      @include('livewire.admin.admins._create')
+
 
       <!-- /.card -->
       </div>

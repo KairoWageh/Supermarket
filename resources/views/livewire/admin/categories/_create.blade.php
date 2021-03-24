@@ -34,9 +34,79 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="description">{{__('description')}}</label>
-                        <textarea name="description" wire:model="des" class="form-control @error('description') is-invalid @enderror" id="description"></textarea>
-                        @error('description')
+                        <label for="type">{{__('type')}}</label>
+                        <select wire:model="type" class="form-control @error('type') is-invalid @enderror">
+                            <option value="">....</option>
+                            <option value="private" wire:key="private">{{__('private')}}</option>
+                            <option value="public" wire:key="public">{{__('public')}}</option>
+                        </select>
+                        @error('type')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    @if (!is_null($type) &&  $type == 'private')
+                        @if(isset($markets) &&  $markets_count > 0)
+                            <div class="form-group row">
+                                <label for="market" class="col-md-4 col-form-label text-md-right">{{__('market')}}</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" wire:model="market">
+                                       <option value="" selected>{{__('choose_market')}}</option>
+
+                                        @foreach($markets as $market)
+                                            <option value="{{ $market->id }}" wire:key="market_id">{{ $market->market_title }}</option>
+                                        @endforeach
+     
+                                    </select>
+
+                                </div>
+                            </div>
+                        @else
+                            <div class="form-group row">
+                               <p>{{__('no_markets')}}</p> 
+                            </div>
+                        @endif
+                         @error('market_id')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    @endif
+                    <div class="form-group">
+                        <label for="level">{{__('level')}}</label>
+                        <select wire:model="level" class="form-control @error('level') is-invalid @enderror">
+                            <option value="">....</option>
+                            <option value="main_category" wire:key="main_category">{{__('main_category')}}</option>
+                            <option value="sub_category" wire:key="sub_category">{{__('sub_category')}}</option>
+                        </select>
+                        @error('level')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    @if (!is_null($level) &&  $level == 'sub_category')
+                        @if(isset($categories) &&  $categories_count > 0)
+                            <div class="form-group row">
+                                <label for="category" class="col-md-4 col-form-label text-md-right">{{__('main_category')}}</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" wire:model="category" >
+                                       <option value="" selected>{{__('choose_main_category')}}</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}" wire:key="category_id">{{ $category->category_title }}</option>
+                                        @endforeach
+                                    </select>
+                                    
+                                </div>
+                            </div>
+                        @else
+                            <div class="form-group row">
+                               <p>{{__('no_categories')}}</p> 
+                            </div>
+                        @endif
+                        @error('category')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    @endif
+                    <div class="form-group">
+                        <label for="des">{{__('description')}}</label>
+                        <textarea name="des" wire:model="des" class="form-control @error('des') is-invalid @enderror" id="des"></textarea>
+                        @error('des')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>

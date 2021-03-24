@@ -36,7 +36,11 @@ class CategoryRequest extends FormRequest
                 'ar_title'    => 'required|min:3|unique:categories',
                 'en_title'    => 'required|min:3|unique:categories',
                 'image'       => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024', // 1MB Max
-                'des' => 'required|min:50',
+                'type'        => 'required',
+                'market'   => "required_if:type,==,private",
+                'level'       =>  'required',
+                'category' => "required_if:level,==,sub_category",
+                'des'         => 'required|min:50',
             ]; 
         }
 
@@ -44,6 +48,10 @@ class CategoryRequest extends FormRequest
             $rules = [
                 'ar_title'    => 'required|min:3|unique:categories,ar_title,'.$this->id,
                 'en_title'    => 'required|min:3|unique:categories,en_title,'.$this->id,
+                'type'        => 'required',
+                'market'   => "required_if:type,==,private",
+                'level'       =>  'required',
+                'category' => "required_if:level,==,sub_category",
                 'des' => 'required|min:50',
             ]; 
         }        

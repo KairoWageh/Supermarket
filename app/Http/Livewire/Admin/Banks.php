@@ -14,6 +14,7 @@ class Banks extends Component
 
     public function render()
     {
+        $this->iteration = 0;
         $this->banks = Bank::all();
         return view('livewire.admin.banks', [
             'banks' => Bank::orderBy('id', 'desc')

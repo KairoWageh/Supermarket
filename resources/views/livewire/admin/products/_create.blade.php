@@ -28,22 +28,30 @@
                     </div>
                     <div class="form-group">
                         <label for="ar_description ">{{__('ar_description ')}}</label>
-                        <textarea name="ar_description" wire:model="ar_description"class="form-control @error('ar_description ') is-invalid @enderror" id="ar_description " placeholder="{{__('ar_description ')}}" ></textarea> 
-                        @error('ar_description')
+                        <textarea name="ar_description" wire:model="ar_des"class="form-control @error('ar_des') is-invalid @enderror" id="ar_des" placeholder="{{__('ar_description ')}}" ></textarea> 
+                        @error('ar_des')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="en_description">{{__('en_description')}}</label>
-                        <textarea name="en_description" wire:model="en_description" class="form-control @error('en_description') is-invalid @enderror" id="en_description" placeholder="{{__('en_description')}}"></textarea>
-                        @error('en_description')
+                        <textarea name="en_description" wire:model="en_des" class="form-control @error('en_des') is-invalid @enderror" id="en_des" placeholder="{{__('en_description')}}"></textarea>
+                        @error('en_des')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="image">{{__('image')}}</label>
+                        <label for="image">{{__('main_image')}}</label>
                         <input type="file" name="image" wire:model="product_image" class="form-control @error('image') is-invalid @enderror" id="upload{{ $iteration }}">
                         @error('image')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="images">{{__('images')}}</label>
+                        <input type="file" name="images" wire:model="product_images" class="form-control @error('images') is-invalid @enderror" id="uploads{{ $iteration }}" multiple>
+                        @error('images.*')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>

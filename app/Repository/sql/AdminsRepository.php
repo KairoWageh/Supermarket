@@ -36,7 +36,10 @@ class AdminsRepository extends BaseRepository implements AdminsRepositoryInterfa
         $request_type = 'store';
 		$adminRequest = new AdminRequest($request_type, null);
         $validator = Validator::make($attributes, $adminRequest->rules(), $messages)->validate();
-
+        if(isset($attributes['image'])){
+            $imageName = $attributes['name'].'.'.$attributes['image']->extension(); 
+            $attributes['image']->storeAs('images/admins', $imageName);
+        }
         $imageName = $attributes['name'].'.'.$attributes['image']->extension(); 
         $attributes['image'] = 'images/admins/'.$imageName;
         $password = $attributes['password'];

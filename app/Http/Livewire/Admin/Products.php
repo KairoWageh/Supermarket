@@ -12,9 +12,12 @@ use URL;
 class Products extends Component
 {
     use WithFileUploads;
-    public $products, $categories, $ar_title, $en_title, $ar_description, $en_description, $product_image, $current_image, $iteration, $price, $quntity, $category_id, $product_id, $selected_product, $show_toastr;
+    public $products, $categories, $ar_title, $en_title, $ar_des, $en_des, $product_image, $current_image, $iteration, $price, $quntity, $category_id, $product_id, $selected_product, $show_toastr;
+    public $product_images = [];
+
     public function render()
     {
+        $this->iteration = 0;
         $this->products   = Product::all();
         $this->categories = Category::all();
         return view('livewire.admin.products', [
@@ -24,7 +27,7 @@ class Products extends Component
     }
 
     public function create(){
-        $this->reset('ar_title', 'en_title', 'ar_description', 'en_description', 'show_toastr');
+        $this->reset('ar_title', 'en_title', 'ar_des', 'en_des', 'show_toastr');
         $this->product_image=null;
 
         $this->iteration++;
@@ -51,9 +54,10 @@ class Products extends Component
         $attributes = [
             'ar_title'    => $this->ar_title,
             'en_title'    => $this->en_title,
-            'ar_des'      => $this->ar_description,
-            'en_des'      => $this->en_description,
+            'ar_des'      => $this->ar_des,
+            'en_des'      => $this->en_des,
             'image'       => $this->product_image,
+            'images'      => $this->product_images,
             'price'       => $this->price,
             'quntity'     => $this->quntity,
             'category_id' => $this->category_id,
@@ -75,8 +79,8 @@ class Products extends Component
         $this->product_id     = $id;
         $this->ar_title       = $product->ar_title;
         $this->en_title       = $product->en_title;
-        $this->ar_description = $product->ar_des;
-        $this->en_description = $product->en_des;
+        $this->ar_des = $product->ar_des;
+        $this->en_des = $product->en_des;
         $this->current_image      = $product->image;
         $this->price          = $product->price;
         $this->quntity        =  $product->quntity;
@@ -86,9 +90,10 @@ class Products extends Component
         $attributes = [
             'ar_title'    => $this->ar_title,
             'en_title'    => $this->en_title,
-            'ar_des'      => $this->ar_description,
-            'en_des'      => $this->en_description,
+            'ar_des'      => $this->ar_des,
+            'en_des'      => $this->en_des,
             'image'       => $this->product_image,
+            'images'      => $this->product_images,
             'price'       => $this->price,
             'quntity'     => $this->quntity,
             'category_id' => $this->category_id,

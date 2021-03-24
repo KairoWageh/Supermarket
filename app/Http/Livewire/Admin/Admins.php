@@ -11,17 +11,18 @@ use URL;
 class Admins extends Component
 {
 	use WithFileUploads;
-    public $admins, $admin_id, $name, $email, $admin_image, $current_image, $iteration, $password, $password_confirmation, $show_toastr, $selected_admin;
+    public $admin_id, $name, $email, $admin_image, $current_image, $iteration, $password, $password_confirmation, $show_toastr, $selected_admin;
     public function render()
     {
-    	$this->admins   = Admin::all();
-        return view('livewire.admin.admins' , [
-            'admins'   => Admin::orderBy('id', 'desc')
-        ]);
+        $this->iteration = 0;
+    	$adminsRepository = resolve(AdminsRepository::class);
+        $model = resolve(Admin::class);
+        $admins = $adminsRepository->all($model);
+        return view('livewire.admin.admins', compact('admins'));
     }
 
     public function create(){
-        $this->reset('name', 'email', 'password', 'password_confirmation', 'show_toastr');
+        $this->reset('name', 'email', 'password', 'iteration', 'password_confirmation', 'show_toastr', 'selected_admin');
         $this->admin_image=null;
 
         $this->iteration++;
@@ -31,10 +32,7 @@ class Admins extends Component
     public function store(){
         $adminsRepository = resolve(AdminsRepository::class);
         $model = resolve(Admin::class);
-        if(isset($this->admin_image)){
-            $imageName = $this->name.'.'.$this->admin_image->extension(); 
-            $this->admin_image->storeAs('images/admins', $imageName);
-        }
+        
         $attributes = [
             'name'     => $this->name,
             'email'    => $this->email,
@@ -51,16 +49,20 @@ class Admins extends Component
     }
 
     public function edit($id){
+        $this->reset('selected_admin');
         $this->setErrorBag(['']);
         $adminsRepository = resolve(AdminsRepository::class);
+        ///dd($adminsRepository);
         $model = resolve(Admin::class);
         $admin = $adminsRepository->find($model, $id);
 
-        $this->admin_id       = $id;
-        $this->name           = $admin->name;
-        $this->email    = $admin->email; 
-        $this->image      = $admin->image;
-        $this->current_image      = $admin->image;
+        
+
+        $this->admin_id      = $id;
+        $this->name          = $admin->name;
+        $this->email         = $admin->email; 
+        $this->image         = $admin->image;
+        $this->current_image = $admin->image;
         
     }
 
@@ -73,16 +75,18 @@ class Admins extends Component
         ];
         $adminsRepository = resolve(AdminsRepository::class);
         $model = resolve(Admin::class);
+
         if($attributes['image'] == null){
             unset($attributes['image']);
         }else{
-            $imageName = $this->name.'.'.$this->image->extension(); 
-            $this->image->storeAs('images/admins', $imageName);
+            $imageName = $attributes['name'].'.'.$attributes['image']->extension(); 
+            $attributes['image']->storeAs('images/admins', $imageName);
         }
 
         if($attributes['password'] == null){
             unset($attributes['password']);
         }
+
         $admin = $adminsRepository->update($id, $model, $attributes);
         if($admin == true){
             $this->emit('admin_updated', $this->show_toastr);

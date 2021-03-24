@@ -19,6 +19,9 @@ class Category extends Model
         'ar_title',
         'en_title',
         'image',
+        'level',
+        'parent_id',
+        'user_id',
         'des',
         
     ];
