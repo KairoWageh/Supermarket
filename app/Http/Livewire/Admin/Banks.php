@@ -78,8 +78,8 @@ class Banks extends Component
         if($attributes['image'] == null){
             unset($attributes['image']);
         }else{
-            $imageName = $this->bank_name.'.'.$this->image->extension(); 
-            $this->image->storeAs('images/banks', $imageName);
+            $imageName = $this->bank_name.'.'.$this->bank_image->extension(); 
+            $this->bank_image->storeAs('images/banks', $imageName);
         }
         $bank = $banksRepository->update($id, $model, $attributes);
         if($bank == true){

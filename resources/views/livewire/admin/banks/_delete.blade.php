@@ -13,7 +13,7 @@
 			<div class="modal-footer justify-content-center">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('cancel')}}</button>
 				@if(isset($delete_bank))
-				<button type="button" class="btn btn-danger" wire:click="delete_confirm({{$delete_bank['id']}})">{{__('delete')}}</button>
+				<button type="button" class="btn btn-danger" wire:click="delete_confirm({{$delete_bank->id}})">{{__('delete')}}</button>
 				@endif
 			</div>
 		</div>

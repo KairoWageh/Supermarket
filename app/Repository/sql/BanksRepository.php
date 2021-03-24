@@ -44,8 +44,17 @@ class BanksRepository extends BaseRepository implements BanksRepositoryInterface
         $request_type = 'store';
 		$bankRequest = new BankRequest($request_type, null);
         $validator = Validator::make($attributes, $bankRequest->rules(), $messages)->validate();
-        $imageName = $attributes['name'].'.'.$attributes['image']->extension(); 
-        $attributes['image'] = 'images/banks/'.$imageName;
+        $imageName = $attributes['bank_name'].'.'.$attributes['image']->extension(); 
+        
+        $attributes['image']  = 'images/banks/'.$imageName;
+
+        $attributes['name'] = $attributes['account_name'];
+        $attributes['number'] = $attributes['account_number'];
+        
+
+        unset($attributes['account_name']);
+        unset($attributes['account_number']);
+        //dd($attributes);
         $bank = $model->create($attributes);
         $bank->image =  Storage::url('app/images/banks/').$bank->image;
         return $bank;

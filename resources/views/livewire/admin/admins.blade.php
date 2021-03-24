@@ -51,14 +51,13 @@
                       <img src="{{ asset('storage/app/'.$admin->image) }}" height="60" width="60" />
                     </td>
                     <td>
-                      <p>{{$admin->id}}</p>
-                        <button type="button" wire:click="edit({{$admin->id}})" class="btn btn-info" data-toggle="modal"  data-target="#edit_admin_modal">
-                            <i class="fa fa-edit"></i> 
-                          </button>
+                      <button type="button" wire:click="edit({{$admin->id}})" class="btn btn-info" data-toggle="modal"  data-target="#edit_admin_modal">
+                          <i class="fa fa-edit"></i> 
+                        </button>
 
-                          <button type="button" wire:click="delete({{$admin->id}})" class="btn btn-danger" data-toggle="modal"  data-target="#delete_admin_modal">
-                            <i class="fa fa-trash"></i> 
-                          </button>
+                        <button type="button" wire:click="delete({{$admin->id}})" class="btn btn-danger" data-toggle="modal"  data-target="#delete_admin_modal">
+                          <i class="fa fa-trash"></i> 
+                        </button>
                       </td>
                   </tr>
                 @endforeach    

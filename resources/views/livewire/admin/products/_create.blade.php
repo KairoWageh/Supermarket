@@ -27,7 +27,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="ar_description ">{{__('ar_description ')}}</label>
+                        <label for="ar_description">{{__('ar_description')}}</label>
                         <textarea name="ar_description" wire:model="ar_des"class="form-control @error('ar_des') is-invalid @enderror" id="ar_des" placeholder="{{__('ar_description ')}}" ></textarea> 
                         @error('ar_des')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -65,14 +65,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="quntity">{{__('quntity')}}</label>
+                        <label for="quntity">{{__('quantity')}}</label>
                         <input type="number" name="quntity" wire:model="quntity" class="form-control @error('quntity') is-invalid @enderror" id="quntity" />
                         @error('quntity')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-
+                        <label for="quntity">{{__('category')}}</label>
                         <select wire:model="category_id" class="form-control @error('category_id') is-invalid @enderror">
                             <option value="">....</option>
                             @foreach($categories as $category)
