@@ -30,29 +30,33 @@
             </div>
               <!-- /.card-header -->
             <div class="card-body">
-              <table id="orders_table" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>{{__('product')}}</th>
-                    <th>{{__('amount')}}</th>
-                    <th>{{__('seller')}}</th>
-                    <th>{{__('buyer')}}</th>
-                    <th>{{__('actions')}}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach($orders as $order)
+              @if($orders_count > 0)
+                <table id="orders_table" class="table table-bordered table-striped">
+                  <thead>
                     <tr>
-                      <td>{{$order->id}}</td>
-                      <td>{{$order->product['product_title']}}</td>
-                      <td>{{$order->amount}}</td>
-                      <td>{{$order->seller['market_title']}}</td>
-                      <td>{{$order->buyer->name}}</td>
+                      <th>#</th>
+                      <th>{{__('product')}}</th>
+                      <th>{{__('amount')}}</th>
+                      <th>{{__('seller')}}</th>
+                      <th>{{__('buyer')}}</th>
+                      <th>{{__('actions')}}</th>
                     </tr>
-                  @endforeach
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    @foreach($orders as $order)
+                      <tr>
+                        <td>{{$order->id}}</td>
+                        <td>{{$order->product['product_title']}}</td>
+                        <td>{{$order->amount}}</td>
+                        <td>{{$order->seller['market_title']}}</td>
+                        <td>{{$order->buyer->name}}</td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              @else
+                <p id="no_records_found">{{__('no_records_found')}}</p>
+              @endif
             </div>
             <!-- /.card-body -->
           </div>

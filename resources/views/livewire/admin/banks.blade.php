@@ -31,41 +31,45 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <table id="admins_table" class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>{{__('account_name')}}</th>
-                  <th>{{__('account_number')}}</th>
-                  <th>{{__('bank_name')}}</th>
-                  <th>{{__('image')}}</th>
-                  <th>{{__('iban')}}</th>
-                  <th>{{__('actions')}}</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($banks as $bank)
+            @if($banks_count > 0)
+              <table id="banks_table" class="table table-bordered table-striped">
+                <thead>
                   <tr>
-                    <td>{{$bank->id}}</td>
-                    <td>{{$bank->name}}</td>
-                    <td>{{$bank->number}}</td>
-                    <td>{{$bank->bank_name}}</td>
-                    <td>
-                      <img src="{{ asset('storage/app/'.$bank->image) }}" height="60" width="60" />
-                    </td>
-                    <td>{{$bank->iban}}</td>
-                    <td>
-                      <button type="button" class="btn btn-info" data-toggle="modal" wire:click=" edit({{ $bank->id }})" data-target="#edit_bank_modal">
-                        <i class="fa fa-edit"></i>
-                      </button>
-                      <button type="button" class="btn btn-danger" data-toggle="modal" wire:click=" delete({{ $bank->id }})" data-target="#delete_bank_modal">
-                        <i class="fa fa-trash"></i>
-                      </button>
-                    </td>
+                    <th>{{__('account_name')}}</th>
+                    <th>{{__('account_number')}}</th>
+                    <th>{{__('bank_name')}}</th>
+                    <th>{{__('image')}}</th>
+                    <th>{{__('iban')}}</th>
+                    <th>{{__('actions')}}</th>
                   </tr>
-                @endforeach 
-              </tbody>
-            </table>
+                </thead>
+                
+                <tbody>
+                    @foreach($banks as $bank)
+                      <tr>
+                        <td>{{$bank->name}}</td>
+                        <td>{{$bank->number}}</td>
+                        <td>{{$bank->bank_name}}</td>
+                        <td>
+                          <img src="{{ asset('storage/app/'.$bank->image) }}" height="60" width="60" />
+                        </td>
+                        <td>{{$bank->iban}}</td>
+                        <td>
+                          <button type="button" class="btn btn-info" data-toggle="modal" wire:click=" edit({{ $bank->id }})" data-target="#edit_bank_modal">
+                            <i class="fa fa-edit"></i>
+                          </button>
+                          <button type="button" class="btn btn-danger" data-toggle="modal" wire:click=" delete({{ $bank->id }})" data-target="#delete_bank_modal">
+                            <i class="fa fa-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    @endforeach 
+                </tbody>
+                
+              </table>
+            @else
+              <p id="no_records_found">{{__('no_records_found')}}</p>
+            @endif
           </div>
         <!-- /.card-body -->
       </div>

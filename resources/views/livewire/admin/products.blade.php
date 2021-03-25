@@ -32,38 +32,42 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="categories_table" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>{{__('title')}}</th>
-                    <th>{{__('description')}}</th>
-                    <th>{{__('image')}}</th>
-                    
-                    <th>{{__('actions')}}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach($products as $product)
+              @if($products_count > 0)
+                <table id="categories_table" class="table table-bordered table-striped">
+                  <thead>
                     <tr>
-                      <td>{{$product->id}}</td>
-                      <td>{{$product->product_title}}</td>
-                      <td>{{ \Illuminate\Support\Str::limit($product->product_description, $limit = 30, $end = '...') }}</td>
-                      <td>
-                        <img src="{{ asset('storage/app/'.$product->image) }}" height="60" width="60" />
-                      </td>
-                      <td>
-                        <button type="button" class="btn btn-info" data-toggle="modal" wire:click=" edit({{ $product->id }})" data-target="#edit_product_modal">
-                          <i class="fa fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" wire:click=" delete({{ $product->id }})" data-target="#delete_product_modal">
-                          <i class="fa fa-trash"></i>
-                        </button>
-                      </td>
+                      <th>#</th>
+                      <th>{{__('title')}}</th>
+                      <th>{{__('description')}}</th>
+                      <th>{{__('image')}}</th>
+                      
+                      <th>{{__('actions')}}</th>
                     </tr>
-                  @endforeach
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    @foreach($products as $product)
+                      <tr>
+                        <td>{{$product->id}}</td>
+                        <td>{{$product->product_title}}</td>
+                        <td>{{ \Illuminate\Support\Str::limit($product->product_description, $limit = 30, $end = '...') }}</td>
+                        <td>
+                          <img src="{{ asset('storage/app/'.$product->image) }}" height="60" width="60" />
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-info" data-toggle="modal" wire:click=" edit({{ $product->id }})" data-target="#edit_product_modal">
+                            <i class="fa fa-edit"></i>
+                          </button>
+                          <button type="button" class="btn btn-danger" data-toggle="modal" wire:click=" delete({{ $product->id }})" data-target="#delete_product_modal">
+                            <i class="fa fa-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              @else
+                <p id="no_records_found">{{__('no_records_found')}}</p>
+              @endif
             </div>
           <!-- /.card-body -->
         </div>

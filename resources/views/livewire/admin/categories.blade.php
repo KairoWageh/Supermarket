@@ -31,37 +31,41 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="categories_table" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>{{__('title')}}</th>
-                    <th>{{__('image')}}</th>
-                    <th>{{__('description')}}</th>
-                    <th>{{__('actions')}}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    @foreach($categories as $category)
+              @if($categories_count > 0)
+                <table id="categories_table" class="table table-bordered table-striped">
+                  <thead>
                     <tr>
-                      <td>{{ $category->id }}</td>
-                      <td>{{ $category->category_title }}</td>
-                      <td>
-                        <img src="{{ asset('storage/'.$category->image) }}" height="60" width="60" />
-                      </td>
-                      <td>{{ \Illuminate\Support\Str::limit($category->des, $limit = 30, $end = '...') }}</td>
-                      <td>
-                        <button type="button" class="btn btn-info" data-toggle="modal" wire:click=" edit({{ $category->id }})" data-target="#edit_category_modal">
-                          <i class="fa fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" wire:click=" delete({{ $category->id }})" data-target="#delete_category_modal">
-                          <i class="fa fa-trash"></i>
-                        </button>
-                      </td>
+                      <th>#</th>
+                      <th>{{__('title')}}</th>
+                      <th>{{__('image')}}</th>
+                      <th>{{__('description')}}</th>
+                      <th>{{__('actions')}}</th>
                     </tr>
-                    @endforeach
-                  </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                      @foreach($categories as $category)
+                      <tr>
+                        <td>{{ $category->id }}</td>
+                        <td>{{ $category->category_title }}</td>
+                        <td>
+                          <img src="{{ asset('storage/'.$category->image) }}" height="60" width="60" />
+                        </td>
+                        <td>{{ \Illuminate\Support\Str::limit($category->des, $limit = 30, $end = '...') }}</td>
+                        <td>
+                          <button type="button" class="btn btn-info" data-toggle="modal" wire:click=" edit({{ $category->id }})" data-target="#edit_category_modal">
+                            <i class="fa fa-edit"></i>
+                          </button>
+                          <button type="button" class="btn btn-danger" data-toggle="modal" wire:click=" delete({{ $category->id }})" data-target="#delete_category_modal">
+                            <i class="fa fa-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                </table>
+              @else
+                <p id="no_records_found">{{__('no_records_found')}}</p>
+              @endif
             </div>
           <!-- /.card-body -->
         </div>

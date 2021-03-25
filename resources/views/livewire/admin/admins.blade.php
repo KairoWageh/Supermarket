@@ -31,83 +31,56 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <table id="admins_table" class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>{{__('name')}}</th>
-                  <th>{{__('email')}}</th>
-                  <th>{{__('image')}}</th>
-                  <th>{{__('actions')}}</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($admins as $admin)
+            @if($admins_count > 0)
+              <table id="admins_table" class="table table-bordered table-striped">
+                <thead>
                   <tr>
-                    <td>{{$admin->name}}</td>
-                    <td>{{$admin->email}}</td>
-                    <td>
-                      <img src="{{ asset('storage/app/'.$admin->image) }}" height="60" width="60" />
-                    </td>
-                    <td>
-                      <button type="button" wire:click="edit({{$admin->id}})" class="btn btn-info" data-toggle="modal"  data-target="#edit_admin_modal">
-                        <i class="fa fa-edit"></i> 
-                      </button>
-                      <button type="button" wire:click="delete({{$admin->id}})" class="btn btn-danger" data-toggle="modal"  data-target="#delete_admin_modal">
-                        <i class="fa fa-trash"></i> 
-                      </button>
-
-                      </td>
+                    <th>{{__('name')}}</th>
+                    <th>{{__('email')}}</th>
+                    <th>{{__('image')}}</th>
+                    <th>{{__('actions')}}</th>
                   </tr>
-                @endforeach    
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  @foreach($admins as $admin)
+                    <tr>
+                      <td>{{$admin->name}}</td>
+                      <td>{{$admin->email}}</td>
+                      <td>
+                        <img src="{{ asset('storage/app/'.$admin->image) }}" height="60" width="60" />
+                      </td>
+                      <td>
+                        <button type="button" wire:click="edit({{$admin->id}})" class="btn btn-info" data-toggle="modal"  data-target="#edit_admin_modal">
+                          <i class="fa fa-edit"></i> 
+                        </button>
+                        @if($admin->id != 1)
+                          <button type="button" wire:click="delete({{$admin->id}})" class="btn btn-danger" data-toggle="modal"  data-target="#delete_admin_modal">
+                            <i class="fa fa-trash"></i> 
+                          </button>
+                        @endif
+
+                        </td>
+                    </tr>
+                  @endforeach    
+                </tbody>
+              </table>
+            @else
+              <p id="no_records_found">{{__('no_records_found')}}</p>
+            @endif
           </div>
         <!-- /.card-body -->
       </div>
       <!-- show all admins end -->
       @include('livewire.admin.admins._edit')
       @if(isset($admin))
-        <!-- Delete admin modal start -->
-<div wire:ignore.self id="delete_admin_modal" class="modal fade">
-  <div class="modal-dialog modal-confirm">
-    <div class="modal-content">
-      <div class="modal-header flex-column">          
-        <h4 class="modal-title w-100">{{__('are_you_sure')}}</h4> 
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p>{{__('confirm')}}</p>
-
-      </div>
-      @if(isset($selected_admin))
-        {{$selected_admin}}
-      @endif
-      <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('cancel')}}</button>
-        @if(isset($selected_admin))
-        <button type="button" class="btn btn-danger" wire:click="delete_confirm({{$selected_admin['id']}})">{{__('delete')}}</button>
-        @endif
-      </div>
-    </div>
-  </div>
-</div> 
-<!-- Delete admin modal end -->
+        @include('livewire.admin.admins._delete')
       @endif
       @include('livewire.admin.admins._create')
-
-      
-
-
-
-
       <!-- /.card -->
       </div>
   </section>
     <!-- /.content -->
 </div>
-
-
-
 @push('scripts')
   <script type="text/javascript">
     // hide modal after creating admin

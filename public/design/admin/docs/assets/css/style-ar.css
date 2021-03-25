@@ -46,3 +46,6 @@ body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .main-fo
 .modal-content{
 	text-align: right !important;
 }
+#no_records_found{
+	float: right !important;
+}

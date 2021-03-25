@@ -30,28 +30,30 @@
             </div>
               <!-- /.card-header -->
             <div class="card-body">
-              <table id="users_table" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>{{__('name')}}</th>
-                    <th>{{__('email')}}</th>
-                    <th>{{__('phone_code')}}</th>
-                    <th>{{__('phone')}}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach($users as $user)
+              @if($users_count > 0)
+                <table id="users_table" class="table table-bordered table-striped">
+                  <thead>
                     <tr>
-                      <td>{{ $user->id }}</td>
-                      <td>{{ $user->name }}</td>
-                      <td>{{ $user->email }}</td>
-                      <td>{{ $user->phone_code }}</td>
-                      <td>{{ $user->phone }}</td>
+                      <th>{{__('name')}}</th>
+                      <th>{{__('email')}}</th>
+                      <th>{{__('phone_code')}}</th>
+                      <th>{{__('phone')}}</th>
                     </tr>
-                  @endforeach
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    @foreach($users as $user)
+                      <tr>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->phone_code }}</td>
+                        <td>{{ $user->phone }}</td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              @else
+                <p id="no_records_found">{{__('no_records_found')}}</p>
+              @endif
             </div>
             <!-- /.card-body -->
           </div>

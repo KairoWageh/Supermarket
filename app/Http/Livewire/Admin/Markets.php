@@ -16,8 +16,10 @@ class Markets extends Component
     {
         $this->iteration = 0;
     	$this->markets   = User::where('type', 2)->get();
+
         return view('livewire.admin.markets' , [
-            'markets'   => $this->markets
+            'markets'   => $this->markets,
+            'markets_count' => $this->markets->count(),
         ]);
     }
 

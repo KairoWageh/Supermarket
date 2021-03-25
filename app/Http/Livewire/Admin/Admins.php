@@ -18,7 +18,8 @@ class Admins extends Component
     	$adminsRepository = resolve(AdminsRepository::class);
         $model = resolve(Admin::class);
         $admins = $adminsRepository->all($model);
-        return view('livewire.admin.admins', compact('admins'));
+        $admins_count = Admin::count();
+        return view('livewire.admin.admins', compact('admins', 'admins_count'));
     }
 
     public function create(){

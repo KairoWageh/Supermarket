@@ -17,7 +17,8 @@ class Banks extends Component
         $this->iteration = 0;
         $this->banks = Bank::all();
         return view('livewire.admin.banks', [
-            'banks' => Bank::orderBy('id', 'desc')
+            'banks' => $this->banks,
+            'banks_count' => Bank::count(),
         ]);
     }
 

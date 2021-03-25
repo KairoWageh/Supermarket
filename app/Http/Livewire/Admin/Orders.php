@@ -18,6 +18,7 @@ class Orders extends Component
     	$orderRepository = resolve(OrderRepository::class);
         $model = resolve(Order::class);
         $orders = $orderRepository->all($model);
+        $orders_count = $orders->count();
         $order_detailes = DB::table('order_detailes')->get();
 
         foreach ($orders as $order) {
@@ -38,7 +39,7 @@ class Orders extends Component
 	        	$order->seller = $seller;
 	        }
         }
-        return view('livewire.admin.orders', compact('orders'));
+        return view('livewire.admin.orders', compact('orders', 'orders_count'));
     }
     public function showOrder($id){
     	$orderRepository = resolve(OrderRepository::class);

@@ -10,6 +10,7 @@ class Users extends Component
     public function render()
     {
     	$users = User::where('type', 1)->get();
-        return view('livewire.admin.users', compact('users'));
+    	$users_count =  $users->count();
+        return view('livewire.admin.users', compact('users', 'users_count'));
     }
 }

@@ -33,6 +33,7 @@
     "more": "More",
     "admins": "Admins",
     "admin": "Admin",
+    "name_unique": "This name is used before",
     "users": "Users",
     "banks": "Banks",
     "bank": "Bank",
@@ -103,6 +104,7 @@
     "not_updated": "Not updated",
     "deleted": "Deleted successfully",
     "not_deleted": "Not deleted",
+    "no_records_found": "No records found",
     "setings":"Settings",
     "address": "Address",
     "default_language": "Default language",
@@ -122,5 +124,6 @@
     "first_address": "First address",
     "second_address": "Second address",
     "first_phone": "First phone",
-    "second_phone": "Second phone"
+    "second_phone": "Second phone",
+    "all_rights_reserved": "All rights reserved"
 }

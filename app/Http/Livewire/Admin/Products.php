@@ -19,10 +19,12 @@ class Products extends Component
     {
         $this->iteration = 0;
         $this->products   = Product::all();
+        $products_count = $this->products->count();
         $this->categories = Category::all();
         return view('livewire.admin.products', [
-            'products'   => Product::orderBy('id', 'desc'),
-            'categories' => Category::orderBy('id', 'desc')
+            'products'   => $this->products,
+            'products_count' => $products_count,
+            'categories' => $this->categories,
         ]);
     }
 
