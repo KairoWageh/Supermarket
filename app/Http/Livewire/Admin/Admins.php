@@ -96,9 +96,11 @@ class Admins extends Component
     }
 
     public function delete($id){
+        $this->reset('selected_admin');
         $adminsRepository = resolve(AdminsRepository::class);
         $model = resolve(Admin::class);
         $this->selected_admin = $adminsRepository->find($model, $id);
+        //dd($this->selected_admin);
         return $this->selected_admin;
     }
 
@@ -106,6 +108,7 @@ class Admins extends Component
         $adminsRepository = resolve(AdminsRepository::class);
         $model = resolve(Admin::class);
         $admin = $adminsRepository->delete($id, $model);
+        $this->reset('selected_admin');
         if($admin == true){
             $this->emit('admin_deleted', $this->show_toastr);
         }else{

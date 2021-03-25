@@ -56,4 +56,9 @@ class User extends Authenticatable
             $title = $this->en_title;
         return sprintf('%s', $title);
     }
+
+    public function categories()
+    {
+        return $this->hasMany(Categories::class);
+    }
 }

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-	{{__('markets')}}
+	{{setting()->site_title}} - {{__('markets')}}
 @endsection
 @section('content')
 	<livewire:admin.markets />

@@ -121,6 +121,7 @@ class Markets extends Component
         //     $this->emit('category_has_products', $this->show_toastr);
         // }else{
             $market = $marketsRepository->delete($id, $model);
+            $this->reset('selected_market');
             if($market == true){
                 $this->emit('market_deleted', $this->show_toastr);
             }else{

@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('title')
-{{__('products')}}
+	{{setting()->site_title}} - {{__('products')}}
 @endsection
 @section('content')
-<livewire:admin.products />
+	<livewire:admin.products />
 @endsection

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Session;
 
 class Setting extends Model
 {
@@ -37,4 +38,12 @@ class Setting extends Model
     	'default_language',
     	'site_proportion'
     ];
+
+    function getSiteTitleAttribute() {
+        if(Session::get('locale') == 'ar')
+            $title = $this->ar_title;
+        else
+            $title = $this->en_title;
+        return sprintf('%s', $title);
+    }
 }

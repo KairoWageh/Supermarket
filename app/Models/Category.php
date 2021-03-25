@@ -33,4 +33,8 @@ class Category extends Model
             $title = $this->en_title;
         return sprintf('%s', $title);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

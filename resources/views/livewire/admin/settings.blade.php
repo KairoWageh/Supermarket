@@ -44,7 +44,7 @@
                           <span name="en_title">{{setting()->en_title}}</span>
                         </div>
                         <div class="form-group">
-                          <label for="ar_description ">{{__('ar_description ')}}</label>
+                          <label for="ar_description ">{{__('ar_description')}}</label>
                           <p name="ar_description">{{setting()->ar_des}}</p>
                         </div>
                         <div class="form-group">

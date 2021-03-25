@@ -113,6 +113,7 @@ class Categories extends Component
             $this->emit('category_has_products', $this->show_toastr);
         }else{
             $category = $categoryRepository->delete($id, $model);
+            $this->reset('delete_category');
             if($category == true){
                 $this->emit('category_deleted', $this->show_toastr);
             }else{

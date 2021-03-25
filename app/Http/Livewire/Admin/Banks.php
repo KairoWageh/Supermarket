@@ -100,6 +100,7 @@ class Banks extends Component
         $banksRepository = resolve(BanksRepository::class);
         $model = resolve(Bank::class);
         $bank = $banksRepository->delete($id, $model);
+        $this->reset('delete_bank');
         if($bank == true){
             $this->emit('bank_deleted', $this->show_toastr);
         }else{

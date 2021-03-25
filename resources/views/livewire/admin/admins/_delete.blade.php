@@ -10,6 +10,9 @@
 				<p>{{__('confirm')}}</p>
 
 			</div>
+			@if(isset($selected_admin))
+				{{$selected_admin}}
+			@endif
 			<div class="modal-footer justify-content-center">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('cancel')}}</button>
 				@if(isset($selected_admin))

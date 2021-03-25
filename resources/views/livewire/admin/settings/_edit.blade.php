@@ -25,7 +25,7 @@
                           @enderror
                         </div>
                         <div class="form-group">
-                          <label for="ar_description ">{{__('ar_description ')}}</label>
+                          <label for="ar_description ">{{__('ar_description')}}</label>
                           <textarea name="ar_description" wire:model="ar_description" class="form-control @error('ar_description ') is-invalid @enderror" id="ar_description " placeholder="{{__('ar_description ')}}" ></textarea> 
                           @error('ar_description')
                               <div class="alert alert-danger">{{ $message }}</div>
@@ -46,15 +46,15 @@
                           @enderror
                         </div>
                         <div class="form-group">
-                            <label for="email1">{{__('email1')}}</label>
-                            <input type="email" value="{{setting()->email1}}" class="form-control @error('email1') is-invalid @enderror" id="email1" placeholder="{{__('email1')}}" wire:model="email1">
+                            <label for="email1">{{__('first_email')}}</label>
+                            <input type="email" value="{{setting()->email1}}" class="form-control @error('email1') is-invalid @enderror" id="email1" placeholder="{{__('first_email')}}" wire:model="email1">
                             @error('email1')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="email2">{{__('email2')}}</label>
-                            <input type="email" value="{{setting()->email2}}" class="form-control @error('email2') is-invalid @enderror" id="email2" placeholder="{{__('email2')}}" wire:model="email2">
+                            <label for="email2">{{__('second_email')}}</label>
+                            <input type="email" value="{{setting()->email2}}" class="form-control @error('email2') is-invalid @enderror" id="email2" placeholder="{{__('second_email')}}" wire:model="email2">
                             @error('email2')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -62,30 +62,30 @@
 
 
                         <div class="form-group">
-                            <label for="address1">{{__('address1')}}</label>
-                            <input type="text" value="{{setting()->address1}}" class="form-control @error('address1') is-invalid @enderror" id="address1" placeholder="{{__('address1')}}" wire:model="address1">
+                            <label for="address1">{{__('first_address')}}</label>
+                            <input type="text" value="{{setting()->address1}}" class="form-control @error('address1') is-invalid @enderror" id="address1" placeholder="{{__('first_address')}}" wire:model="address1">
                             @error('address1')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="address2">{{__('address2')}}</label>
-                            <input type="text" value="{{setting()->address2}}" class="form-control @error('address2') is-invalid @enderror" id="address2" placeholder="{{__('address2')}}" wire:model="address2">
+                            <label for="address2">{{__('second_address')}}</label>
+                            <input type="text" value="{{setting()->address2}}" class="form-control @error('address2') is-invalid @enderror" id="address2" placeholder="{{__('second_address')}}" wire:model="address2">
                             @error('address2')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label for="phone1">{{__('phone1')}}</label>
-                            <input type="text" value="{{setting()->phone1}}" class="form-control @error('phone1') is-invalid @enderror" id="phone1" placeholder="{{__('phone1')}}" wire:model="phone1">
+                            <label for="phone1">{{__('first_phone')}}</label>
+                            <input type="text" value="{{setting()->phone1}}" class="form-control @error('phone1') is-invalid @enderror" id="phone1" placeholder="{{__('first_phone')}}" wire:model="phone1">
                             @error('phone1')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="phone2">{{__('phone2')}}</label>
-                            <input type="text" value="{{setting()->phone2}}" class="form-control @error('phone2') is-invalid @enderror" id="phone2" placeholder="{{__('phone2')}}" wire:model="phone2">
+                            <label for="phone2">{{__('second_phone')}}</label>
+                            <input type="text" value="{{setting()->phone2}}" class="form-control @error('phone2') is-invalid @enderror" id="phone2" placeholder="{{__('second_phone')}}" wire:model="phone2">
                             @error('phone2')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

@@ -126,6 +126,7 @@ class Products extends Component
         $productsRepository = resolve(ProductsRepository::class);
         $model = resolve(Product::class);
         $product = $productsRepository->delete($id, $model);
+        $this->reset('selected_product');
         if($product == true){
             $this->emit('product_deleted', $this->show_toastr);
         }else{
